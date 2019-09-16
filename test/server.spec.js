@@ -1,3 +1,5 @@
+process.env.NODE_ENV = 'test'
+
 const chai = require('chai')
 const chaiHttp = require('chai-http')
 const { MongoMemoryServer } = require('mongodb-memory-server')
@@ -29,5 +31,23 @@ describe('server integration tests', function () {
       .to.exist
       .and.to.haveOwnProperty('statusCode')
       .and.to.be.eq(200, 'status code should be 200')
+  })
+  it('should return 404 on unrecognized route', async function () {
+    expect(expressApp, 'instance must be defined').to.exist
+    const response = await request(expressApp).get('/wrong')
+    expect(response, 'response be defined')
+      .to.exist
+      .and.to.haveOwnProperty('statusCode')
+      .and.to.be.eq(404, 'status code should be 404')
+    expect(response.body, 'must have response payload')
+      .to.exist
+      .and.to.be.an('object')
+    expect(response.body.error)
+      .to.exist
+      .and.to.be.eq(true)
+    expect(response.body.message)
+      .to.exist
+      .and.to.be.eq('not-found')
+
   })
 })

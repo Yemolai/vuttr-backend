@@ -17,7 +17,7 @@ module.exports = async ({ connectionString: uri, port = 8080 }) => {
   // import routes here
   routes.forEach(route => app.use(route.path, route.router))
 
-  app.get('.*', (_, res) => res.status(404).json({ error: true, message: 'not-found' }))
+  app.get('*', (_, res) => res.status(404).json({ error: true, message: 'not-found' }))
 
   process.on('uncaughtException', error => {
     morgan('combined').error('[uncaughtException]', error.message)
