@@ -1,0 +1,39 @@
+{
+  "name": "vuttr-backend",
+  "version": "1.0.0",
+  "description": "Very Useful Tools to Remember",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "mocha --recursive --bail --timeout 60000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yemolai/vuttr-backend.git"
+  },
+  "keywords": [
+    "test",
+    "bossabox",
+    "express",
+    "mongoose",
+    "mvc"
+  ],
+  "author": "Romulo Gabriel Rodrigues (Yemolai)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Yemolai/vuttr-backend/issues"
+  },
+  "homepage": "https://github.com/Yemolai/vuttr-backend#readme",
+  "dependencies": {
+    "dotenv": "^8.1.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.7.0",
+    "morgan": "^1.9.1"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "mocha": "^6.2.0",
+    "mongodb-memory-server": "^5.2.3"
+  }
+}
